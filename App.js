@@ -51,7 +51,7 @@ export default class App extends Component {
               onEnd={this.onEnd}                      // Callback when playback finishes
               onError={this.videoError}               // Callback when video cannot be loaded
               audioOnly={true}
-              paused={this.state.play} />
+              muted={this.state.play} />
       </View>
       <View style={styles.areaBtn}>
           <TouchableOpacity onPress={this.playRadio}>
@@ -91,7 +91,9 @@ const styles = StyleSheet.create({
     
   },
   logo: {
-    marginTop:50
+    marginTop:50,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   botao:{
   

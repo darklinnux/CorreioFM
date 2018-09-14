@@ -53,15 +53,16 @@ export default class App extends Component {
               audioOnly={true}
               paused={this.state.play} />
       </View>
-      
-      <TouchableOpacity onPress={this.playRadio}>
-      <Image
-        style={styles.botao}
-        source={(this.state.play) ? 
-          require("./images/playbotao.png")
-          :require("./images/stopbotao.png")}
-      />
-    </TouchableOpacity>
+      <View style={styles.areaBtn}>
+          <TouchableOpacity onPress={this.playRadio}>
+          <Image
+            style={styles.botao}
+            source={(this.state.play) ? 
+              require("./images/playbotao.png")
+              :require("./images/stopbotao.png")}
+          />
+          </TouchableOpacity>
+    </View>
     
 
       </ImageBackground>
@@ -77,34 +78,25 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width:'100%',
-    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  contimage:{
+    flex: 1,
+  },
+  areaBtn:{
+    flex:1,
+    justifyContent: 'flex-end',
+    
+    
   },
   logo: {
-    flex: 1,
-    resizeMode: 'contain',
-    width: " 100%",
-    height: '100%',
-    marginTop: '30%',
-    paddingTop:50,
-    padding: 60,
-    top: 60,
-    justifyContent: 'center',
+    marginTop:50
   },
   botao:{
   
-      alignItems: 'center',
-      width:'20%',
-      height:'20%',
-      marginTop: '50%',
-      marginLeft: 160,
-      
-     
-    
-    
-
-
-
-  
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginBottom:50
   }
 })

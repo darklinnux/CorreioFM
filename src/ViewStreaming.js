@@ -84,6 +84,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contmenu:{
+    paddingTop: 20,
+    paddingLeft: 10,
   },
   contimagem:{
     flex:1,

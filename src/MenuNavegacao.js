@@ -10,7 +10,20 @@ const MenuNavegacao = createBottomTabNavigator({
         screen: ViewStreaming,
     },
 }, {
-    //headerMode: 'none'
+    tabBarOptions: {
+        showLabel: true,
+        activeTintColor: '#fff',
+        inactiveTintColor: '#bdb1cc',
+        style: {
+            backgroundColor: 'rgba(22, 22, 22, 0.3)',
+            borderTopWidth: 1,
+            borderTopColor: '#353535',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+        },
+    }
 });
 
 export default MenuNavegacao;

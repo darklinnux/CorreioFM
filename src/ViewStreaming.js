@@ -48,6 +48,14 @@ export default class ViewStreaming extends Component {
               <Text>Texto Menu</Text>
           
           </View>
+          <View style={styles.contimagem}>
+              <Text>Texto Imagem</Text>
+          
+          </View>
+          <View style={styles.contbtn}>
+              <Text style={styles.btn}>Texto Play</Text>
+          
+          </View>
       </View>
     
         
@@ -64,5 +72,21 @@ const styles = StyleSheet.create({
   },
   contmenu:{
     backgroundColor:'green'
+  },
+  contimagem:{
+    flex:1,
+    backgroundColor:'red',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  contbtn:{
+    flex:1,
+    backgroundColor:'blue',
+    justifyContent:'flex-end',
+    alignItems:'center',
+    paddingBottom:50
+  },
+  btn:{
+    marginBottom:50
   }
 })

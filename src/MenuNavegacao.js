@@ -10,7 +10,16 @@ const MenuNavegacao = createBottomTabNavigator({
         screen: ViewStreaming,
     },
 }, {
-    //headerMode: 'none'
+    tabBarOptions: {
+        //activeTintColor: '#e91e63',
+        labelStyle: {
+            fontSize: 12,
+        },
+        style: {
+            backgroundColor: 'transparent',
+        },
+    }
+
 });
 
 export default MenuNavegacao;

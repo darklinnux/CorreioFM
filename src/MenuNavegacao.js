@@ -11,15 +11,19 @@ const MenuNavegacao = createBottomTabNavigator({
     },
 }, {
     tabBarOptions: {
-        //activeTintColor: '#e91e63',
-        labelStyle: {
-            fontSize: 12,
-        },
+        showLabel: true,
+        activeTintColor: '#fff',
+        inactiveTintColor: '#bdb1cc',
         style: {
-            backgroundColor: 'transparent',
+            backgroundColor: 'rgba(22, 22, 22, 0.3)',
+            borderTopWidth: 1,
+            borderTopColor: '#353535',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
         },
     }
-
 });
 
 export default MenuNavegacao;

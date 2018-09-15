@@ -5,7 +5,7 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 import ViewStreaming from './ViewStreaming'
 import { createStackNavigator } from 'react-navigation';
 
-const MyAppStackNavigator = createStackNavigator({
+const MenuNavegacao = createStackNavigator({
     Home: {
         screen: ViewStreaming,
     },
@@ -13,4 +13,4 @@ const MyAppStackNavigator = createStackNavigator({
     //headerMode: 'none'
 });
 
-export default MyAppStackNavigator;
+export default MenuNavegacao;

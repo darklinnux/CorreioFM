@@ -8,17 +8,6 @@ import {
   Image,
   TouchableOpacity} from 'react-native';
 import Video from 'react-native-video';
-const BtnMenu = ()=>{
-  return(
-    <View>
-      <TouchableOpacity onPress={()=>this.props.navigation.toggleDrawer()}>
-          <Image
-            source={require("../images/menu.png")}
-          />
-      </TouchableOpacity>
-    </View>
-  );  
-};
 export default class ViewStreaming extends Component {
 
   constructor(props){
@@ -43,20 +32,44 @@ export default class ViewStreaming extends Component {
   render() {
     return (
       
-      <View style={styles.container}>
+      <ImageBackground style={styles.container} source={require('../images/backgroundapp.jpg')}>
           <View style={styles.contmenu}>
-              <Text>Texto Menu</Text>
+              <TouchableOpacity onPress={()=>this.props.navigation.toggleDrawer()}>
+                  <Image
+                    source={require("../images/menu.png")}
+                  />
+              </TouchableOpacity>
           
           </View>
           <View style={styles.contimagem}>
-              <Text>Texto Imagem</Text>
+              <Image source={require('../images/logo.png')} style={styles.logo}>
+      
+      
+              </Image>
           
           </View>
           <View style={styles.contbtn}>
-              <Text style={styles.btn}>Texto Play</Text>
+              <TouchableOpacity onPress={this.playRadio}>
+                  <Image
+                    style={styles.botao}
+                    source={(this.state.play) ? 
+                      require("../images/playbotao.png")
+                      :require("../images/stopbotao.png")}
+                  />
+              </TouchableOpacity>
           
           </View>
-      </View>
+          <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
+              ref={(ref) => {
+              this.player = ref
+              }}                                      // Store reference
+              playInBackground={true}
+              onBuffer={this.onBuffer}                // Callback when remote video is buffering
+              onEnd={this.onEnd}                      // Callback when playback finishes
+              onError={this.videoError}               // Callback when video cannot be loaded
+              audioOnly={true}
+              muted={this.state.play} />
+      </ImageBackground>
     
         
 
@@ -71,17 +84,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contmenu:{
-    backgroundColor:'green'
   },
   contimagem:{
     flex:1,
-    backgroundColor:'red',
     alignItems:'center',
     justifyContent:'center'
   },
   contbtn:{
     flex:1,
-    backgroundColor:'blue',
     justifyContent:'flex-end',
     alignItems:'center',
     paddingBottom:50

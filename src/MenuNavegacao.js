@@ -22,6 +22,8 @@ const MenuNavegacao = createBottomTabNavigator({
         screen: ViewUsuario,
     }
 }, {
+    tabBarPosition:'botton',
+    animationEnable:true,
     tabBarOptions: {
         showLabel:false,
         style: {

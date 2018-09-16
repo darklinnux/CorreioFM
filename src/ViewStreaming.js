@@ -38,13 +38,23 @@ export default class ViewStreaming extends Component {
     return (
       
       <ImageBackground style={styles.container} source={require('../images/backgroundapp.jpg')}>
+          <StatusBar backgroundColor="#22315c"/>
           <View style={styles.contmenu}>
               <Image source={require('../images/logo.png')} style={styles.logo}>
               </Image>
           
           </View>
           <View style={styles.contimagem}>
-              
+              <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
+                  ref={(ref) => {
+                  this.player = ref
+                  }}                                      // Store reference
+                  playInBackground={true}
+                  onBuffer={this.onBuffer}                // Callback when remote video is buffering
+                  onEnd={this.onEnd}                      // Callback when playback finishes
+                  onError={this.videoError}               // Callback when video cannot be loaded
+                  audioOnly={true}
+                  muted={this.state.play} />
           
           </View>
           <View style={styles.contbtn}>
@@ -58,16 +68,7 @@ export default class ViewStreaming extends Component {
               </TouchableOpacity>
           
           </View>
-          <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
-              ref={(ref) => {
-              this.player = ref
-              }}                                      // Store reference
-              playInBackground={true}
-              onBuffer={this.onBuffer}                // Callback when remote video is buffering
-              onEnd={this.onEnd}                      // Callback when playback finishes
-              onError={this.videoError}               // Callback when video cannot be loaded
-              audioOnly={true}
-              muted={this.state.play} />
+          
       </ImageBackground>
     
         

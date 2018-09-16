@@ -40,8 +40,16 @@ export default class ViewStreaming extends Component {
       <ImageBackground style={styles.container} source={require('../images/backgroundapp.jpg')}>
           <StatusBar backgroundColor="#22315c"/>
           <View style={styles.contmenu}>
-              <Image source={require('../images/logo.png')} style={styles.logo}>
-              </Image>
+              <View>
+                <Image source={require('../images/logo.png')} style={styles.logo} />
+              </View>
+              <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',paddingRight:10}}>
+                <Image source={require('../images/youtube.png')} style={{marginRight:4}} />
+                <Image source={require('../images/facebook.png')} style={{marginRight:4}} />
+                <Image source={require('../images/instagram.png')} style={{marginRight:4}} />
+                <Image source={require('../images/twitter.png')} />
+              </View>
+              
           
           </View>
           <View style={styles.contimagem}>
@@ -70,9 +78,6 @@ export default class ViewStreaming extends Component {
           </View>
           
       </ImageBackground>
-    
-        
-
 
     );
     
@@ -84,6 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contmenu:{
+    flexDirection: 'row',
     paddingTop: 20,
     paddingLeft: 10,
   },
@@ -96,9 +102,8 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'flex-end',
     alignItems:'center',
-    paddingBottom:50
   },
   btn:{
-    marginBottom:50
+    
   }
-})
+});

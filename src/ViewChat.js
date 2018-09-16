@@ -45,10 +45,10 @@ class ViewChat extends Component {
 RkTheme.setType('RkCard', 'story', {
   img: {
     height: 100,
-    opacity: 0.7
   },
   header: {
-    alignSelf: 'center'
+    alignSelf: 'center',
+    opacity: 0.3
   },
   content:{
     alignSelf:'center'

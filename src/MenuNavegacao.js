@@ -24,7 +24,7 @@ const MenuNavegacao = createBottomTabNavigator({
 }, {
     tabBarPosition:'botton',
     animationEnable:true,
-    initialRouteName:'ViewChat',
+    initialRouteName:'ViewStreaming',
     tabBarOptions: {
         showLabel:false,
         style: {

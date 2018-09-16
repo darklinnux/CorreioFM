@@ -20,7 +20,12 @@ export default class ViewStreaming extends Component {
 
   static navigationOptions = ({navigation}) => ({
     headerTransparent: true,
-    //headerLeft: BtnMenu()
+    tabBarIcon: ({focused}) => {
+        return(
+          <Image source={require('../images/home.png')} >
+              </Image>
+        );
+    }
     
   });
 
@@ -34,18 +39,12 @@ export default class ViewStreaming extends Component {
       
       <ImageBackground style={styles.container} source={require('../images/backgroundapp.jpg')}>
           <View style={styles.contmenu}>
-              <TouchableOpacity onPress={()=>this.props.navigation.toggleDrawer()}>
-                  <Image
-                    source={require("../images/menu.png")}
-                  />
-              </TouchableOpacity>
+              <Image source={require('../images/logo.png')} style={styles.logo}>
+              </Image>
           
           </View>
           <View style={styles.contimagem}>
-              <Image source={require('../images/logo.png')} style={styles.logo}>
-      
-      
-              </Image>
+              
           
           </View>
           <View style={styles.contbtn}>

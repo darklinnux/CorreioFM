@@ -7,6 +7,7 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity} from 'react-native';
+import {Card} from './component/Card';
 import Video from 'react-native-video';
 export default class ViewStreaming extends Component {
 
@@ -53,6 +54,9 @@ export default class ViewStreaming extends Component {
           
           </View>
           <View style={styles.contimagem}>
+              <Card 
+                source={require("../images/card.jpg")}
+                titulo="Programação"/> 
               <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
                   ref={(ref) => {
                   this.player = ref
@@ -94,9 +98,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   contimagem:{
+    flexDirection: 'row',
     flex:1,
-    alignItems:'center',
-    justifyContent:'center'
   },
   contbtn:{
     flex:1,

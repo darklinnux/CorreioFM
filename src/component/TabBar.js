@@ -41,7 +41,7 @@ export class TabBar extends Component {
         }, 
       
         fixIcon: {
-          //backgroundColor: 'transparent',
+          backgroundColor: 'transparent',
           width: 70,
           height: 83,
           position: 'absolute', 

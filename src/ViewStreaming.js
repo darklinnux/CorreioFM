@@ -2,22 +2,20 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   StatusBar,
-  View,
-  Text, 
+  View, 
   ImageBackground,
   Image,
   TouchableOpacity} from 'react-native';
 import {Card} from './component/Card';
-import Video from 'react-native-video';
+import {TabBar} from './component/TabBar'
 export default class ViewStreaming extends Component {
 
   constructor(props){
     super(props);
-    this.state = {play:true}
+    this.state = {
+      play:true}
     this.playRadio = this.playRadio.bind(this);
   }
-
-  
 
   static navigationOptions = ({navigation}) => ({
     headerTransparent: true,
@@ -66,27 +64,12 @@ export default class ViewStreaming extends Component {
           
           </View>
           <View style={styles.contbtn}>
-            <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
-                    ref={(ref) => {
-                    this.player = ref
-                    }}                                      // Store reference
-                    playInBackground={true}
-                    onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                    onEnd={this.onEnd}                      // Callback when playback finishes
-                    onError={this.videoError}               // Callback when video cannot be loaded
-                    audioOnly={true}
-                    muted={this.state.play} />
-              <TouchableOpacity onPress={this.playRadio}>
-                  <Image
-                    style={styles.botao}
-                    source={(this.state.play) ? 
-                      require("../images/playbotao.png")
-                      :require("../images/stopbotao.png")}
-                  />
-              </TouchableOpacity>
+            
           
           </View>
-          
+          <TabBar 
+            navigation={this.props.navigation}
+            />
       </ImageBackground>
 
     );

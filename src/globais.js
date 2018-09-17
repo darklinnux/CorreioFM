@@ -1,0 +1,1 @@
+global.playStop = true;

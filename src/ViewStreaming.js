@@ -2,21 +2,26 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   StatusBar,
-  View,
-  Text, 
+  View, 
   ImageBackground,
   Image,
-  TouchableOpacity} from 'react-native';
-import Video from 'react-native-video';
+  TouchableOpacity,
+  Modal,
+  Text,
+  TouchableHighlight} from 'react-native';
+import {Card} from './component/Card';
+import {TabBar} from './component/TabBar';
 export default class ViewStreaming extends Component {
-
+  //state = {modalVisible:false}
   constructor(props){
     super(props);
-    this.state = {play:true}
-    this.playRadio = this.playRadio.bind(this);
+    this.state = {modalVisible:false}
+    this.setModalVisible = this.setModalVisible.bind(this);
   }
 
-  
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
 
   static navigationOptions = ({navigation}) => ({
     headerTransparent: true,
@@ -28,12 +33,6 @@ export default class ViewStreaming extends Component {
     }
     
   });
-
-  playRadio(){
-    let radioState = this.state;
-    radioState.play = (this.state.play) ? false : true;
-    this.setState(radioState);
-  }
   render() {
     return (
       
@@ -44,39 +43,68 @@ export default class ViewStreaming extends Component {
                 <Image source={require('../images/logo.png')} style={styles.logo} />
               </View>
               <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',paddingRight:10}}>
-                <Image source={require('../images/youtube.png')} style={{marginRight:4}} />
-                <Image source={require('../images/facebook.png')} style={{marginRight:4}} />
-                <Image source={require('../images/instagram.png')} style={{marginRight:4}} />
-                <Image source={require('../images/twitter.png')} />
+                <TouchableOpacity>
+                  <Image source={require('../images/youtube.png')} style={{marginRight:4}} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={require('../images/facebook.png')} style={{marginRight:4}} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={require('../images/instagram.png')} style={{marginRight:4}} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Image source={require('../images/twitter.png')} />
+                </TouchableOpacity>
               </View>
               
           
           </View>
           <View style={styles.contimagem}>
-              <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
-                  ref={(ref) => {
-                  this.player = ref
-                  }}                                      // Store reference
-                  playInBackground={true}
-                  onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                  onEnd={this.onEnd}                      // Callback when playback finishes
-                  onError={this.videoError}               // Callback when video cannot be loaded
-                  audioOnly={true}
-                  muted={this.state.play} />
+              <View style={styles.contCard}>
+              <Modal
+                animationType="slide"
+                transparent={false}
+                visible={this.state.modalVisible}
+                onRequestClose={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <View style={{marginTop: 22}}>
+                  <View>
+                    <Text>Hello World!</Text>
+
+                    <TouchableHighlight
+                      onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                      }}>
+                      <Text>Hide Modal</Text>
+                    </TouchableHighlight>
+                  </View>
+                </View>
+              </Modal>
+              <TouchableOpacity 
+                style={styles.contCard}
+                onPress={() => {
+                  this.setModalVisible(true);
+                }}>
+                <Card 
+                  source={require("../images/card.jpg")}
+                  titulo="Programação"/> 
+              </TouchableOpacity>
+              </View>
+              <View style={styles.contParceiros}>
+
+              </View>
+              
           
           </View>
           <View style={styles.contbtn}>
-              <TouchableOpacity onPress={this.playRadio}>
-                  <Image
-                    style={styles.botao}
-                    source={(this.state.play) ? 
-                      require("../images/playbotao.png")
-                      :require("../images/stopbotao.png")}
-                  />
-              </TouchableOpacity>
+            
           
           </View>
           
+          <TabBar 
+            navigation={this.props.navigation}
+            />
       </ImageBackground>
 
     );
@@ -94,9 +122,16 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   contimagem:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
+    flex:2,
+  },
+  contCard:{
+    flex:2,
+    //backgroundColor: 'green',
+  },
+  contParceiros:{
+    flex : 1,
+    backgroundColor: 'white',
+    marginTop: 15,
   },
   contbtn:{
     flex:1,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, ImageBackground, Image } from 'react-native';
+import {TabBar} from './component/TabBar'
 
 
 class ViewChat extends Component {
@@ -20,11 +21,11 @@ class ViewChat extends Component {
   });
   render() {
     return (
-      <View>
+      <ImageBackground style={{flex:1,justifyContent:'flex-end',}} source={require('../images/backgroundapp.jpg')}>
+        <TabBar navigation={this.props.navigation} />
+      </ImageBackground>
         
-      </View>
     );
   }
 }
-
 export default ViewChat;

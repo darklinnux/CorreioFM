@@ -54,22 +54,28 @@ export default class ViewStreaming extends Component {
           
           </View>
           <View style={styles.contimagem}>
-              <Card 
-                source={require("../images/card.jpg")}
-                titulo="Programação"/> 
-              <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
-                  ref={(ref) => {
-                  this.player = ref
-                  }}                                      // Store reference
-                  playInBackground={true}
-                  onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                  onEnd={this.onEnd}                      // Callback when playback finishes
-                  onError={this.videoError}               // Callback when video cannot be loaded
-                  audioOnly={true}
-                  muted={this.state.play} />
+              <View style={styles.contCard}>
+                <Card 
+                  source={require("../images/card.jpg")}
+                  titulo="Programação"/> 
+              </View>
+              <View style={styles.contParceiros}>
+
+              </View>
+              
           
           </View>
           <View style={styles.contbtn}>
+            <Video source={{uri: "http://192.99.18.13:8858/live"}}   // Can be a URL or a local file.
+                    ref={(ref) => {
+                    this.player = ref
+                    }}                                      // Store reference
+                    playInBackground={true}
+                    onBuffer={this.onBuffer}                // Callback when remote video is buffering
+                    onEnd={this.onEnd}                      // Callback when playback finishes
+                    onError={this.videoError}               // Callback when video cannot be loaded
+                    audioOnly={true}
+                    muted={this.state.play} />
               <TouchableOpacity onPress={this.playRadio}>
                   <Image
                     style={styles.botao}
@@ -98,8 +104,16 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   contimagem:{
-    flexDirection: 'row',
-    flex:1,
+    flex:2,
+  },
+  contCard:{
+    flex:2,
+    //backgroundColor: 'green',
+  },
+  contParceiros:{
+    flex : 1,
+    backgroundColor: 'white',
+    marginTop: 15,
   },
   contbtn:{
     flex:1,

@@ -21,7 +21,6 @@ export class  ModalProgramacao extends Component {
           transparent={false}
           visible={this.props.visible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
             this.setModalVisible(true);
           }}>
           <View style={{marginTop: 22}}>

@@ -66,8 +66,7 @@ export default class ViewStreaming extends Component {
                 transparent={false}
                 visible={this.state.modalVisible}
                 onRequestClose={() => {
-                  Alert.alert('Modal has been closed.');
-                  this.setModalVisible(true);
+                  this.setModalVisible(!this.state.modalVisible);
                 }}>
                 <View style={{marginTop: 22}}>
                   <View>

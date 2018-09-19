@@ -8,8 +8,10 @@ import {
   TouchableOpacity,
   Modal,
   Text,
-  TouchableHighlight} from 'react-native';
+  TouchableHighlight,
+  ScrollView} from 'react-native';
 import {Card} from './component/Card';
+import {ListaDeProgramacao} from './component/ListaDeProgramacao';
 import {TabBar} from './component/TabBar';
 export default class ViewStreaming extends Component {
   //state = {modalVisible:false}
@@ -68,10 +70,9 @@ export default class ViewStreaming extends Component {
                 onRequestClose={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
-                <View style={{marginTop: 22}}>
-                  <View>
-                    <Text>Hello World!</Text>
-
+                <View>
+                  <ListaDeProgramacao />
+                  <View style={modalEstilo.modalContButton}>
                     <TouchableHighlight
                       onPress={() => {
                         this.setModalVisible(!this.state.modalVisible);
@@ -140,5 +141,17 @@ const styles = StyleSheet.create({
   },
   btn:{
     
+  }
+});
+
+const modalEstilo = StyleSheet.create({
+  modaContCard:{
+    height: 200,
+    backgroundColor: 'white',
+  },
+  modalContButton:{
+    //flex:1,
+    //zIndex: 2222,
+    backgroundColor: 'red',
   }
 });

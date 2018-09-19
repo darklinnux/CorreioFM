@@ -11,7 +11,7 @@ import {
   TouchableHighlight,
   ScrollView} from 'react-native';
 import {Card} from './component/Card';
-import {ListaDeProgramacao} from './component/ListaDeProgramacao';
+import {CardTeste} from './component/CardTeste';
 import {TabBar} from './component/TabBar';
 export default class ViewStreaming extends Component {
   //state = {modalVisible:false}
@@ -71,7 +71,50 @@ export default class ViewStreaming extends Component {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
                 <View>
-                  <ListaDeProgramacao />
+                  <View>
+                    <ScrollView>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card2.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card2.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card2.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                      <View style={modalEstilo.modaContCard}>
+                        <CardTeste
+                        source={require("../images/card2.jpg")}
+                        titulo="Programação"/> 
+                      </View>
+                    </ScrollView>
+                  </View>
                   <View style={modalEstilo.modalContButton}>
                     <TouchableHighlight
                       onPress={() => {

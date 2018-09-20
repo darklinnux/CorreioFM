@@ -6,6 +6,7 @@ import ViewStreaming from './src/ViewStreaming';
 import ViewConfig from './src/ViewConfig';
 import ViewChat from './src/ViewChat';
 import ViewUsuario from "./src/ViewUsuario";
+import ViewProgramacao from "./src/ViewProgramacao";
 import { createStackNavigator } from 'react-navigation';
 
 
@@ -21,6 +22,9 @@ const MyApp = createStackNavigator({
   },
   ViweUsuario: {
       screen: ViewUsuario,
+  },
+  ViewProgramacao:{
+    screen: ViewProgramacao
   }
 },{
   headerMode:"none",

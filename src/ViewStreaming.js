@@ -13,16 +13,23 @@ import {
 import {Card} from './component/Card';
 import {CardTeste} from './component/CardTeste';
 import {TabBar} from './component/TabBar';
+import ViewProgramacao from './ViewProgramacao';
 export default class ViewStreaming extends Component {
   //state = {modalVisible:false}
   constructor(props){
     super(props);
     this.state = {modalVisible:false}
     this.setModalVisible = this.setModalVisible.bind(this);
+    this.mudarTela = this.mudarTela.bind(this);
   }
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
+  }
+
+  mudarTela(tela){
+    this.setModalVisible(false);
+    this.props.navigation.navigate(tela);
   }
 
   static navigationOptions = ({navigation}) => ({
@@ -73,11 +80,13 @@ export default class ViewStreaming extends Component {
                 <View>
                   <View>
                     <ScrollView>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card.jpg")}
-                        titulo="Programação"/> 
-                      </View>
+                      <TouchableOpacity onPress={()=> this.mudarTela('ViewProgramacao')}>
+                        <View style={modalEstilo.modaContCard}>
+                          <CardTeste
+                          source={require("../images/card.jpg")}
+                          titulo="Programação"/> 
+                        </View>
+                      </TouchableOpacity>
                       <View style={modalEstilo.modaContCard}>
                         <CardTeste
                         source={require("../images/card2.jpg")}

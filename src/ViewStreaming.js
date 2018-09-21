@@ -84,7 +84,7 @@ export default class ViewStreaming extends Component {
                         <View style={modalEstilo.modaContCard}>
                           <CardTeste
                           source={require("../images/card.jpg")}
-                          titulo="Programação"/> 
+                          titulo="Segunda Feira"/> 
                         </View>
                       </TouchableOpacity>
                       <View style={modalEstilo.modaContCard}>

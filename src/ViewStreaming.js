@@ -14,6 +14,7 @@ import {Card} from './component/Card';
 import {CardTeste} from './component/CardTeste';
 import {TabBar} from './component/TabBar';
 import ViewProgramacao from './ViewProgramacao';
+import { PlayerStreaming } from './component/PlayerStreaming';
 export default class ViewStreaming extends Component {
   //state = {modalVisible:false}
   constructor(props){
@@ -70,74 +71,11 @@ export default class ViewStreaming extends Component {
           </View>
           <View style={styles.contimagem}>
               <View style={styles.contCard}>
-              <Modal
-                animationType="slide"
-                transparent={false}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <View>
-                  <View>
-                    <ScrollView>
-                      <TouchableOpacity onPress={()=> this.mudarTela('ViewProgramacao')}>
-                        <View style={modalEstilo.modaContCard}>
-                          <CardTeste
-                          source={require("../images/card.jpg")}
-                          titulo="Segunda Feira"/> 
-                        </View>
-                      </TouchableOpacity>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card2.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card2.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card2.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                      <View style={modalEstilo.modaContCard}>
-                        <CardTeste
-                        source={require("../images/card2.jpg")}
-                        titulo="Programação"/> 
-                      </View>
-                    </ScrollView>
-                  </View>
-                  <View style={modalEstilo.modalContButton}>
-                    <TouchableHighlight
-                      onPress={() => {
-                        this.setModalVisible(!this.state.modalVisible);
-                      }}>
-                      <Text>Hide Modal</Text>
-                    </TouchableHighlight>
-                  </View>
-                </View>
-              </Modal>
+              
               <TouchableOpacity 
                 style={styles.contCard}
                 onPress={() => {
-                  this.setModalVisible(true);
+                  this.props.navigation.navigate("ViewProgramacao");
                 }}>
                 <Card 
                   source={require("../images/card.jpg")}
@@ -155,9 +93,7 @@ export default class ViewStreaming extends Component {
           
           </View>
           
-          <TabBar 
-            navigation={this.props.navigation}
-            />
+          <PlayerStreaming />
       </ImageBackground>
 
     );

@@ -76,7 +76,6 @@ export default class ViewProgramacao extends Component {
 const modalEstilo = StyleSheet.create({
     cotainer:{
       flex: 1,
-      backgroundColor: 'green',
     },
     containerLista:{
       flex: 1,

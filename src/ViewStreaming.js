@@ -19,19 +19,9 @@ export default class ViewStreaming extends Component {
   //state = {modalVisible:false}
   constructor(props){
     super(props);
-    this.state = {modalVisible:false}
-    this.setModalVisible = this.setModalVisible.bind(this);
-    this.mudarTela = this.mudarTela.bind(this);
   }
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  mudarTela(tela){
-    this.setModalVisible(false);
-    this.props.navigation.navigate(tela);
-  }
+  
 
   static navigationOptions = ({navigation}) => ({
     headerTransparent: true,
@@ -129,17 +119,5 @@ const styles = StyleSheet.create({
   },
   btn:{
     
-  }
-});
-
-const modalEstilo = StyleSheet.create({
-  modaContCard:{
-    height: 200,
-    backgroundColor: 'white',
-  },
-  modalContButton:{
-    //flex:1,
-    //zIndex: 2222,
-    backgroundColor: 'red',
   }
 });

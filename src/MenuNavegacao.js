@@ -7,13 +7,14 @@ import ViewConfig from './ViewConfig';
 import ViewChat from './ViewChat';
 import ViewUsuario from "./ViewUsuario";
 import { createBottomTabNavigator } from 'react-navigation';
+import ViewProgramacao from './ViewProgramacao';
 
 const MenuNavegacao = createBottomTabNavigator({
-    ViewConfig: {
-        screen: ViewConfig,
-    },
     ViewStreaming: {
         screen: ViewStreaming,
+    },
+    ViewProgramacao:{
+        screen: ViewProgramacao
     },
     ViewChat: {
         screen: ViewChat,

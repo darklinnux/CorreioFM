@@ -37,6 +37,7 @@ export class CardTeste extends Component {
                 <View style={styles.contTitulo}>
                     <Text style={styles.titulo}>{this.props.horario}</Text>
                     <Text style={styles.titulo}>{this.props.programacao}</Text>
+                    <Text style={styles.titulo}>{this.props.apresentador}</Text>
                 </View>
                 <View style={styles.contImagem}>
                     <Image source={require("../../images/logo.png")} />

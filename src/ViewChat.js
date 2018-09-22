@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, Image } from 'react-native';
 import {TabBar} from './component/TabBar'
+import { PlayerStreaming } from './component/PlayerStreaming';
 
 
 class ViewChat extends Component {
@@ -22,7 +23,7 @@ class ViewChat extends Component {
   render() {
     return (
       <ImageBackground style={{flex:1,justifyContent:'flex-end',}} source={require('../images/backgroundapp.jpg')}>
-        <TabBar navigation={this.props.navigation} />
+        <PlayerStreaming />
       </ImageBackground>
         
     );

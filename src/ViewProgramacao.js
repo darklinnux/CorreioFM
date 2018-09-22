@@ -49,8 +49,8 @@ export default class ViewProgramacao extends Component {
 
   render() {
     return (
-      <View>
-          <View>
+      <View style={modalEstilo.cotainer}>
+          <View style={modalEstilo.containerLista}>
             <FlatList
               data={this.state.listaProgramacao}
               renderItem={({item})=>{
@@ -66,16 +66,21 @@ export default class ViewProgramacao extends Component {
                       </TouchableOpacity>
                   );
               }}/>
+              <PlayerStreaming />  
           </View>
-          <View>
-            <PlayerStreaming />  
-          </View>  
       </View>
     );
   }
 }
 
 const modalEstilo = StyleSheet.create({
+    cotainer:{
+      flex: 1,
+      backgroundColor: 'green',
+    },
+    containerLista:{
+      flex: 1,
+    },
     modaContCard:{
       height: 200,
       backgroundColor: 'white',

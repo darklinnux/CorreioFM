@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
-import RadioStreaming from './RadioStreaming';
+import { View, TouchableOpacity, Image, StyleSheet, Text, NetInfo } from 'react-native';
+import {RadioStreaming} from './RadioStreaming';
 
 export class PlayerStreaming extends Component {
   constructor(props) {
     super(props);
-    this.state = {play:true};
+    this.state = {play:true,tituloProgramacao:'Sem conexão com internet!!'};
+    this.conexaoEvento = this.conexaoEvento.bind(this);
     this.playRadio = this.playRadio.bind(this);
+    NetInfo.isConnected.addEventListener('connectionChange',this.conexaoEvento)
+    
   }
 
+  conexaoEvento(info){
+    let state = this.state;
+    if(!info){
+      state.tituloProgramacao = 'Sem conexão com internet!!!';
+    }else{
+      state.tituloProgramacao = 'Voz da verdade';
+    }
+    this.setState(state);
+  }
     playRadio(){
         let radioState = this.state;
         radioState.play = (this.state.play) ? false : true;
@@ -45,7 +57,7 @@ export class PlayerStreaming extends Component {
       <View style={styles.container}>
         <RadioStreaming stop={this.state.play} />
         <View style={styles.containerTitulo}>
-            <Text style={styles.tituloProgramacao}>Voz da manhã</Text>
+            <Text style={styles.tituloProgramacao}>{this.state.tituloProgramacao}</Text>
         </View>
         <View>
             <TouchableOpacity onPress={this.playRadio}>

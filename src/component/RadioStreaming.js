@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Video from 'react-native-video';
 
-export default class RadioStreaming extends Component {
+export class RadioStreaming extends Component {
   
   render() {
     return (

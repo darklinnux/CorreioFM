@@ -6,22 +6,13 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  Modal,
-  Text,
-  TouchableHighlight,
-  ScrollView} from 'react-native';
+  NetInfo} from 'react-native';
 import {Card} from './component/Card';
-import {CardTeste} from './component/CardTeste';
-import {TabBar} from './component/TabBar';
-import ViewProgramacao from './ViewProgramacao';
-import { PlayerStreaming } from './component/PlayerStreaming';
+import {PlayerStreaming} from './component/PlayerStreaming';
 export default class ViewStreaming extends Component {
-  //state = {modalVisible:false}
   constructor(props){
     super(props);
   }
-
-  
 
   static navigationOptions = ({navigation}) => ({
     headerTransparent: true,

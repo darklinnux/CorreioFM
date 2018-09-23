@@ -25,7 +25,7 @@ const MenuNavegacao = createBottomTabNavigator({
 }, {
     tabBarPosition:'botton',
     animationEnable:true,
-    initialRouteName:'ViewStreaming',
+    initialRouteName:'ViewProgramacao',
     tabBarOptions: {
         showLabel:false,
         style: {

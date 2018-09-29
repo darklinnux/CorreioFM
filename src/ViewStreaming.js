@@ -6,12 +6,28 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  NetInfo} from 'react-native';
+  Linking} from 'react-native';
 import {Card} from './component/Card';
 import {PlayerStreaming} from './component/PlayerStreaming';
 export default class ViewStreaming extends Component {
   constructor(props){
     super(props);
+    this.linkRedeSociais={
+      facebook: "https://www.facebook.com/correiodecarajas",
+      instagram: "https://www.instagram.com/correiodecarajas/",
+      twitter: "https://twitter.com/correiocarajas",
+      youtube: "https://www.youtube.com/channel/UCigTjobalV2Ie3R6Dy5FGjg"
+    }
+  }
+
+  openRedeSoiciais(url){
+    Linking.canOpenURL(url).then(supported => {
+      if (!supported) {
+        console.log('Can\'t handle url: ' + url);
+      } else {
+        return Linking.openURL(url);
+      }
+    }).catch(err => console.error('An error occurred', err));
   }
 
   static navigationOptions = ({navigation}) => ({
@@ -34,16 +50,16 @@ export default class ViewStreaming extends Component {
                 <Image source={require('../images/logo.png')} style={styles.logo} />
               </View>
               <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',paddingRight:10}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.openRedeSoiciais(this.linkRedeSociais.youtube)}>
                   <Image source={require('../images/youtube.png')} style={{marginRight:4}} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.openRedeSoiciais(this.linkRedeSociais.facebook)}>
                   <Image source={require('../images/facebook.png')} style={{marginRight:4}} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.openRedeSoiciais(this.linkRedeSociais.instagram)}>
                   <Image source={require('../images/instagram.png')} style={{marginRight:4}} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.openRedeSoiciais(this.linkRedeSociais.twitter)}>
                   <Image source={require('../images/twitter.png')} />
                 </TouchableOpacity>
               </View>

@@ -9,14 +9,55 @@ import {
   Linking} from 'react-native';
 import {Card} from './component/Card';
 import {PlayerStreaming} from './component/PlayerStreaming';
+import Programacoes from './classes/model/Programacoes_model';
 export default class ViewStreaming extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      listaProgramacao:""
+    };
     this.linkRedeSociais={
       facebook: "https://www.facebook.com/correiodecarajas",
       instagram: "https://www.instagram.com/correiodecarajas/",
       twitter: "https://twitter.com/correiocarajas",
       youtube: "https://www.youtube.com/channel/UCigTjobalV2Ie3R6Dy5FGjg"
+    }
+    this.loadProgramacoes = this.loadProgramacoes.bind(this);
+  }
+
+  loadProgramacoes(){
+    Programacoes.loadProgramacoes((programas)=>{
+      let state = this.state;
+      //state.listaProgramacao = [];
+      programas.forEach((programa)=>{
+        alert("teste");
+        let retorno = this.programacaoAtual(programa.val().horario,programa.val().fim);
+        if(retorno){
+          state.listaProgramacao = programa.val().programa;
+          //break;
+        }
+             
+      });
+      this.setState(state); 
+    });
+  }
+
+  programacaoAtual(inicio,fim){
+    alert("teste");
+    let horaSistema = new Date();
+    let inicioProgramacao = new Date();
+    let fimProgramacao = new Date();
+    //Configurando convertendo as strings em data e hora;
+    inicioProgramacao.setHours(inicio.split(":")[0]);
+    inicioProgramacao.setMinutes(inicio.split(":")[1]);
+    fimProgramacao.setHours(fim.split(":")[0]);
+    fimProgramacao.setMinutes(fim.split(":")[1]);
+
+    if(horaSistema >= inicioProgramacao && horaSistema < fimProgramacao){
+      alert(true);
+      return true;
+    }else{
+      alert("false");
     }
   }
 
@@ -76,7 +117,7 @@ export default class ViewStreaming extends Component {
                 }}>
                 <Card 
                   source={require("../images/card.jpg")}
-                  titulo="Programação"/> 
+                  titulo={this.state.listaProgramacao}/> 
               </TouchableOpacity>
               </View>
               <View style={styles.contParceiros}>

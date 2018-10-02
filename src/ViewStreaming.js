@@ -22,6 +22,7 @@ export default class ViewStreaming extends Component {
       twitter: "https://twitter.com/correiocarajas",
       youtube: "https://www.youtube.com/channel/UCigTjobalV2Ie3R6Dy5FGjg"
     }
+    this.loadProgramacoes();
     this.loadProgramacoes = this.loadProgramacoes.bind(this);
   }
 
@@ -30,7 +31,6 @@ export default class ViewStreaming extends Component {
       let state = this.state;
       //state.listaProgramacao = [];
       programas.forEach((programa)=>{
-        alert("teste");
         let retorno = this.programacaoAtual(programa.val().horario,programa.val().fim);
         if(retorno){
           state.listaProgramacao = programa.val().programa;
@@ -43,7 +43,6 @@ export default class ViewStreaming extends Component {
   }
 
   programacaoAtual(inicio,fim){
-    alert("teste");
     let horaSistema = new Date();
     let inicioProgramacao = new Date();
     let fimProgramacao = new Date();
@@ -54,10 +53,9 @@ export default class ViewStreaming extends Component {
     fimProgramacao.setMinutes(fim.split(":")[1]);
 
     if(horaSistema >= inicioProgramacao && horaSistema < fimProgramacao){
-      alert(true);
       return true;
     }else{
-      alert("false");
+      return false;
     }
   }
 
@@ -131,7 +129,7 @@ export default class ViewStreaming extends Component {
           
           </View>
           
-          <PlayerStreaming />
+          <PlayerStreaming titulo={this.state.listaProgramacao} />
       </ImageBackground>
 
     );

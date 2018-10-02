@@ -79,9 +79,7 @@ export default class ViewStreaming extends Component {
                   titulo="Programação"/> 
               </TouchableOpacity>
               </View>
-              <View style={styles.contParceiros}>
-
-              </View>
+             
               
           
           </View>
@@ -109,16 +107,13 @@ const styles = StyleSheet.create({
   },
   contimagem:{
     flex:2,
+    maxHeight: 200,
   },
   contCard:{
     flex:2,
     //backgroundColor: 'green',
   },
-  contParceiros:{
-    flex : 1,
-    backgroundColor: 'white',
-    marginTop: 15,
-  },
+  
   contbtn:{
     flex:1,
     justifyContent:'flex-end',

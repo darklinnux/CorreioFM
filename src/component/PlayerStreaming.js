@@ -5,7 +5,7 @@ import {RadioStreaming} from './RadioStreaming';
 export class PlayerStreaming extends Component {
   constructor(props) {
     super(props);
-    this.state = {play:true,tituloProgramacao:this.props.programacao};
+    this.state = {play:true,tituloProgramacao:'CorreioFM 92.1'};
     this.conexaoEvento = this.conexaoEvento.bind(this);
     this.playRadio = this.playRadio.bind(this);
     NetInfo.isConnected.addEventListener('connectionChange',this.conexaoEvento)
@@ -17,7 +17,7 @@ export class PlayerStreaming extends Component {
     if(!info){
       state.tituloProgramacao = 'Sem conexão com internet!!!';
     }else{
-      state.tituloProgramacao = this.props.programacao;
+      state.tituloProgramacao = 'Radio CorreioFM 92.1';
     }
     this.setState(state);
   }

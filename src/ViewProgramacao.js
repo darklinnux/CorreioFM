@@ -57,7 +57,7 @@ export default class ViewProgramacao extends Component {
                       </TouchableOpacity>
                   );
               }}/>
-              <PlayerStreaming />  
+              {/* <PlayerStreaming />   */}
           </View>
       </View>
     );

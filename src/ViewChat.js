@@ -23,7 +23,7 @@ class ViewChat extends Component {
   render() {
     return (
       <ImageBackground style={{flex:1,justifyContent:'flex-end',}} source={require('../images/backgroundapp.jpg')}>
-        <PlayerStreaming />
+       {/*  <PlayerStreaming /> */}
       </ImageBackground>
         
     );

@@ -30,6 +30,7 @@ const MenuNavegacao = createBottomTabNavigator({
         showLabel:false,
         style: {
             backgroundColor: '#a80f16',
+            borderTopColor:'#a80f16'
         },
     }
 });

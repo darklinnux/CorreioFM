@@ -17,7 +17,7 @@ export class PlayerStreaming extends Component {
     if(!info){
       state.tituloProgramacao = 'Sem conexão com internet!!!';
     }else{
-      state.tituloProgramacao = 'Radio CorreioFM 92.1';
+      state.tituloProgramacao = 'Rádio Correio FM 92.1';
     }
     this.setState(state);
   }
@@ -32,14 +32,14 @@ export class PlayerStreaming extends Component {
           container:{
               
               flexDirection: 'row',
-              backgroundColor: 'black',
+              backgroundColor: '#a80f16',
               justifyContent: 'flex-end',
               alignContent: 'center',
               height: 50,
           },
           iconPlay:{
               marginTop: 5,
-              marginRight: 5,
+              marginRight: 30,
               height: 36,
               width: 36,
           },

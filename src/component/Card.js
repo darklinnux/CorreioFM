@@ -37,7 +37,7 @@ export class Card extends Component {
             <Text style={styles.titulo}>{this.props.titulo}</Text>
         </View>
         <View style={styles.contImagem}>
-            <Image source={require("../../images/logo.png")} />
+            {/* <Image source={require("../../images/logo.png")} /> */}
         </View>
       </ImageBackground>
     );

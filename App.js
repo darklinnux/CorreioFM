@@ -32,7 +32,7 @@ const MyApp = createStackNavigator({
   }
 },{
   headerMode:"none",
-  initialRouteName:"MenuNavegacao",
+  initialRouteName:"ViewStreaming",
   animateEnable:false
 });
 

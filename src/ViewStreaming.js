@@ -10,6 +10,7 @@ import {
 import {Card} from './component/Card';
 import {PlayerStreaming} from './component/PlayerStreaming';
 import Programacoes from './classes/model/Programacoes_model';
+import {TabBar}  from './component/TabBar';
 export default class ViewStreaming extends Component {
   constructor(props){
     super(props);
@@ -127,7 +128,8 @@ export default class ViewStreaming extends Component {
           
           </View>
           
-          <PlayerStreaming titulo={this.state.listaProgramacao} />
+          {/* <PlayerStreaming titulo={this.state.listaProgramacao} /> */}
+          <TabBar />
       </ImageBackground>
 
     );

@@ -53,18 +53,18 @@ export class TabBar extends Component {
     return (
         <View style={{height: 65}}> 
         <View style={[styles.tabbar, {marginTop: 16}]}>
-          <TouchableOpacity style={styles.iconColumn} onPress={()=> this.props.navigation.navigate('ViewConfig')}>
+          <TouchableOpacity style={styles.iconColumn} /* onPress={()=> this.props.navigation.navigate('ViewConfig')} */>
             <Image source={require('../../images/settings.png')} />
           </TouchableOpacity> 
-          <TouchableOpacity style={styles.iconColumn} onPress={()=> this.props.navigation.navigate('ViewStreaming')}>
+          <TouchableOpacity style={styles.iconColumn} /* onPress={()=> this.props.navigation.navigate('ViewStreaming')} */>
             <Image source={require('../../images/home.png')} />
           </TouchableOpacity>
           <View style={styles.iconColumn}>
           </View>
-          <TouchableOpacity style={styles.iconColumn} onPress={()=> this.props.navigation.navigate('ViewChat')}>
+          <TouchableOpacity style={styles.iconColumn} /* onPress={()=> this.props.navigation.navigate('ViewChat')} */>
             <Image source={require('../../images/message.png')} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.iconColumn} onPress={()=> this.props.navigation.navigate('ViewUsuario')}>
+          <TouchableOpacity style={styles.iconColumn} /* onPress={()=> this.props.navigation.navigate('ViewUsuario')} */>
             <Image source={require('../../images/user.png')} />
           </TouchableOpacity>
         </View>

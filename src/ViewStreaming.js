@@ -129,7 +129,9 @@ export default class ViewStreaming extends Component {
           </View>
           
           {/* <PlayerStreaming titulo={this.state.listaProgramacao} /> */}
-          <TabBar />
+          <TabBar 
+            navigation={this.props.navigation}
+            />
       </ImageBackground>
 
     );

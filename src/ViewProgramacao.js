@@ -15,14 +15,17 @@ export default class ViewProgramacao extends Component {
   loadProgramacoes(){
     Programacoes.loadProgramacoes((programas)=>{
       let state = this.state;
+      let controle = 1;
       state.listaProgramacao = [];
-      programas.forEach((childItem)=>{
+      programas.forEach((programa)=>{
         state.listaProgramacao.push({
-            key:childItem.key,
-            horario:childItem.val().horario,
-            programa:childItem.val().programa,
-            apresentador:childItem.val().apresentador
+            key:programa.key,
+            horario:programa.val().horario,
+            programa:programa.val().programa,
+            apresentador:programa.val().apresentador,
+            img: (controle % 2 == 0) ? require("../images/card3.jpeg") : require("../images/card4.jpeg")
           });
+          controle +=1; 
         this.setState(state);      
       });
     });
@@ -49,7 +52,7 @@ export default class ViewProgramacao extends Component {
                       <TouchableOpacity onPress={()=> {}}>
                           <View style={modalEstilo.modaContCard}>
                               <CardTeste
-                                  source={require("../images/card.jpg")}
+                                  source={item.img}
                                   horario={item.horario}
                                   programacao={item.programa}
                                   apresentador={item.apresentador}/> 

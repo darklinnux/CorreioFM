@@ -12,18 +12,25 @@ export class CardTeste extends Component {
             /* marginLeft: 10,
             marginRight: 10,
             marginTop: 10, */
-            borderRadius: 10,
-            borderColor: '#000',
+            //borderBottomStartRadius:0,
+            //borderRadius: 10,
+            borderTopWidth:1,
+            borderColor: '#fff',
         },
         contTitulo:{
+            paddingTop:60,
+            paddingLeft:140,
             padding: 10,
-            flex:1
+            flex:1,
+            justifyContent:'center',
+            alignContent: 'center',
         },
         titulo: {
+            textAlign:'center',
             zIndex: 999,
-            color:'black',
+            color:'white',
             fontWeight: 'bold',
-            fontSize:20
+            fontSize:25
         },
         contImagem:{
             flex: 1,
@@ -40,7 +47,7 @@ export class CardTeste extends Component {
                     <Text style={styles.titulo}>{this.props.apresentador}</Text>
                 </View>
                 <View style={styles.contImagem}>
-                    <Image source={require("../../images/logo.png")} />
+                    {/* <Image source={require("../../images/logo.png")} /> */}
                 </View>
             </ImageBackground>
         </View>
